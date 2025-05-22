@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6A1B3191-54FB-479C-BA3E-F8AAE2A9A15B}|BlazorToDoApp.csproj|c:\\code\\dotnet\\csharpproject\\blazortodoapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{6A1B3191-54FB-479C-BA3E-F8AAE2A9A15B}|BlazorToDoApp.csproj|solutionrelative:readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6A1B3191-54FB-479C-BA3E-F8AAE2A9A15B}|BlazorToDoApp.csproj|c:\\code\\dotnet\\csharpproject\\blazortodoapp\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{6A1B3191-54FB-479C-BA3E-F8AAE2A9A15B}|BlazorToDoApp.csproj|solutionrelative:wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -47,6 +51,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-05-22T11:46:40.577Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "app.css",
               "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\wwwroot\\css\\app.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\app.css",
@@ -59,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "index.html",
               "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
@@ -67,12 +84,11 @@
               "RelativeToolTip": "wwwroot\\index.html",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-05-22T10:51:14.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T10:51:14.604Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Pages\\Home.razor",
@@ -80,12 +96,11 @@
               "RelativeToolTip": "Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T10:45:41.973Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T10:45:41.973Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ToDoApp.razor",
               "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\Pages\\ToDoApp.razor",
               "RelativeDocumentMoniker": "Pages\\ToDoApp.razor",
@@ -93,12 +108,11 @@
               "RelativeToolTip": "Pages\\ToDoApp.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-05-22T10:45:19.503Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T10:45:19.503Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ToDo.cs",
               "DocumentMoniker": "C:\\code\\DotNet\\CSharpProject\\BlazorToDoApp\\Models\\ToDo.cs",
               "RelativeDocumentMoniker": "Models\\ToDo.cs",
@@ -106,8 +120,7 @@
               "RelativeToolTip": "Models\\ToDo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-22T10:44:34.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-22T10:44:34.444Z"
             }
           ]
         }
