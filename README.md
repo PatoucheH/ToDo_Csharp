@@ -9,7 +9,7 @@ Une application **ToDo List** développée en **C#** avec **Blazor** côté fron
 - ✅ Ajouter de nouvelles tâches
 - 📝 Marquer les tâches comme terminées
 - ❌ Supprimer des tâches
-- 💾 Persistance locale ou via une API (selon version)
+- 💾 Persistance locale 
 - 📱 Design responsive grâce à Bootstrap
 
 ---
@@ -22,7 +22,7 @@ Une application **ToDo List** développée en **C#** avec **Blazor** côté fron
 | C# / .NET | Langage principal et framework backend |
 | [Bootstrap 5](https://getbootstrap.com/) | Framework CSS pour un design moderne et responsive |
 | HTML / Razor | Syntaxe de composants Blazor |
-| (Optionnel) JSON / API | Sauvegarde ou chargement distant |
+| Local Storage | Sauvegarde  |
 
 ---
 
