@@ -30,6 +30,11 @@ jobs:
       - name: Publish project
         run: dotnet publish -c Release -o publish_output --nologo
 
+      - name: Inspect publish_output
+        run: echo "::group::Publish output structure"
+          find publish_output
+          echo "::endgroup::"
+
       - name: List published files for debug
         run: ls -la publish_output/wwwroot
 
