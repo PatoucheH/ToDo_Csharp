@@ -22,24 +22,20 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./ToDo_Csharp.csproj
 
-      - name: Build project Release
-        run: dotnet build -c Release --no-restore
+      - name: Build project
+        run: dotnet build ./ToDo_Csharp.csproj -c Release --no-restore
 
       - name: Publish project
-        run: dotnet publish -c Release -o publish_output --nologo
+        run: dotnet publish ./ToDo_Csharp.csproj -c Release -o publish_output
 
-      - name: Inspect publish_output
-        run: echo "::group::Publish output structure"
-          find publish_output
-          echo "::endgroup::"
+      - name: Inspect output
+        run: find publish_output
 
-      - name: List published files for debug
-        run: ls -la publish_output/wwwroot
-
-      - name: Copy index.html to 404.html
-        run: cp publish_output/wwwroot/index.html publish_output/wwwroot/404.html
+      - name: Copy index.html to 404.html (Blazor fallback)
+        run: |
+          cp publish_output/wwwroot/index.html publish_output/wwwroot/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
