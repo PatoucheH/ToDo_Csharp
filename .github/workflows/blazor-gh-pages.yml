@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 permissions:
   contents: write
 
@@ -12,32 +13,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository 🛎️
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET SDK 🔧
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
 
-      - name: Restore dependencies 📦
+      - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build project 🔨
-        run: dotnet build --configuration Release --no-restore
+      - name: Build project Release
+        run: dotnet build -c Release --no-restore
 
-      - name: Publish Blazor WASM app 🚀
-        run: dotnet publish -c Release -o release/wwwroot --nologo
+      - name: Publish project
+        run: dotnet publish -c Release -o publish_output --nologo
 
-      - name: Copy index.html to 404.html (fix GitHub Pages SPA routing) 🛠️
-        run: cp release/wwwroot/index.html release/wwwroot/404.html
+      - name: List published files for debug
+        run: ls -la publish_output/wwwroot
 
-      - name: Deploy to GitHub Pages 🌐
+      - name: Copy index.html to 404.html
+        run: cp publish_output/wwwroot/index.html publish_output/wwwroot/404.html
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: release/wwwroot
+          publish_dir: publish_output/wwwroot
           publish_branch: gh-pages
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
-          keep_files: false
