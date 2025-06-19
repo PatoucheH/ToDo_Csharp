@@ -1,0 +1,75 @@
+﻿@using Blazored.LocalStorage
+@using BlazorToDoApp.Models
+@inject ILocalStorageService localStorage
+
+<div class="container w-75 mx-auto text-center " style="height: 80vh">
+    <h4 class="fs-2 text-decoration-underline my-4">List Tasks :</h4>
+    <div class="container">
+        <ul class="list-unstyled list-group">
+            @foreach (var todo in ToDos)
+            {
+                <li class="list-group-item position-relative">
+                    <input class="big-checkbox" type="checkbox"
+                           checked="@todo.IsDone"
+                           @onchange="async e =>
+                           {   todo.IsDone = ((ChangeEventArgs)e).Value as bool? ?? false;
+                               await SaveTodosAsync();}" />
+                      <span class="fs-4">@todo.Title</span>
+                    <button class="btn btn-danger position-absolute top-0 end-0" @onclick="() => RemoveTask(todo)">X</button>
+                    <br />
+                    <span>Created : @todo.DateCreated.ToString("yyyy/MM/dd")</span>
+                </li>
+            }
+        </ul>
+
+        <EditForm Model="@this" OnValidSubmit="AddTask">
+            <InputText class="form-control text-center mx-auto w-50 mt-5 fs-4" @bind-Value="text" />
+            <button type="submit" class="btn btn-primary fs-4 px-3 m-3">Add a task to do</button>
+        </EditForm>
+    </div>
+
+    <button class="btn btn-danger" @onclick="DeleteTaskDone">Delete task done</button>
+</div>
+
+@code {
+    List<ToDo> ToDos = new();
+    string text = "";
+
+    const string StorageKey = "todos";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var savedTodos = await localStorage.GetItemAsync<List<ToDo>>(StorageKey);
+        if (savedTodos != null)
+        {
+            ToDos = savedTodos;
+        }
+    }
+
+    async Task SaveTodosAsync()
+    {
+        await localStorage.SetItemAsync(StorageKey, ToDos);
+    }
+
+    async Task AddTask()
+    {
+        if (!string.IsNullOrWhiteSpace(text))
+        {
+            ToDos.Add(new ToDo(text));
+            text = "";
+            await SaveTodosAsync();
+        }
+    }
+
+    async Task DeleteTaskDone()
+    {
+        ToDos.RemoveAll(task => task.IsDone);
+        await SaveTodosAsync();
+    }
+
+    async Task RemoveTask(ToDo todo)
+    {
+        ToDos.Remove(todo);
+        await SaveTodosAsync();
+    }
+}
