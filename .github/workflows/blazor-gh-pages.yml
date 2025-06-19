@@ -22,13 +22,13 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Restore dependencies
-        run: dotnet restore ./ToDo_Csharp.csproj
+        run: dotnet restore ./BlazorToDoApp.csproj
 
       - name: Build project
-        run: dotnet build ./ToDo_Csharp.csproj -c Release --no-restore
+        run: dotnet build ./BlazorToDoApp.csproj -c Release --no-restore
 
       - name: Publish project
-        run: dotnet publish ./ToDo_Csharp.csproj -c Release -o publish_output
+        run: dotnet publish ./BlazorToDoApp.csproj -c Release -o publish_output
 
       - name: Inspect output
         run: find publish_output
