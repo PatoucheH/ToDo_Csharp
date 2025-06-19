@@ -13,35 +13,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: 📥 Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup .NET SDK
+      - name: 🛠️ Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 9.0.x
 
-      - name: Restore dependencies
-        run: dotnet restore ./BlazorToDoApp.csproj
+      - name: 🧱 Restore dependencies
+        run: dotnet restore
 
-      - name: Build project
-        run: dotnet build ./BlazorToDoApp.csproj -c Release --no-restore
+      - name: 🏗️ Build project
+        run: dotnet build -c Release --no-restore
 
-      - name: Publish project
-        run: dotnet publish ./BlazorToDoApp.csproj -c Release -o publish_output
+      - name: 🚀 Publish Blazor WebAssembly
+        run: dotnet publish -c Release -o publish_output
 
-      - name: Inspect output
-        run: find publish_output
-
-      - name: Copy index.html to 404.html (Blazor fallback)
+      - name: 🔍 Debug publish output
         run: |
-          cp publish_output/wwwroot/index.html publish_output/wwwroot/404.html
+          echo "::group::Contenu de publish_output"
+          find publish_output
+          echo "::endgroup::"
 
-      - name: Deploy to GitHub Pages
+      - name: 📄 Vérification présence de index.html
+        run: |
+          if [ ! -f publish_output/wwwroot/index.html ]; then
+            echo "❌ Fichier index.html introuvable dans publish_output/wwwroot/"
+            exit 1
+          fi
+
+      - name: 🧾 Copy index.html to 404.html
+        run: cp publish_output/wwwroot/index.html publish_output/wwwroot/404.html
+
+      - name: 🚢 Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: publish_output/wwwroot
           publish_branch: gh-pages
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
