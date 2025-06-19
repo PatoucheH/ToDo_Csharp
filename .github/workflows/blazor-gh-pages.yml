@@ -3,17 +3,17 @@ name: Deploy Blazor WASM to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  
 
 permissions:
-  contents: write
+  contents: write  
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout repository 🛎️
         uses: actions/checkout@v3
 
       - name: Setup .NET SDK 🔧
@@ -24,18 +24,21 @@ jobs:
       - name: Restore dependencies 📦
         run: dotnet restore
 
-      - name: Build 🔨
+      - name: Build project 🔨
         run: dotnet build --configuration Release --no-restore
 
-      - name: Publish Blazor WebAssembly app 🚀
-        run: dotnet publish -c Release -o release --nologo
+      - name: Publish Blazor WASM app 🚀
+        run: dotnet publish -c Release -o release/wwwroot --nologo
 
-      - name: Copy index.html to 404.html (GitHub Pages fix) 🛠️
+      - name: Copy index.html to 404.html (fix GitHub Pages SPA routing) 🛠️
         run: cp release/wwwroot/index.html release/wwwroot/404.html
 
       - name: Deploy to GitHub Pages 🌐
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
           publish_dir: release/wwwroot
+          publish_branch: gh-pages
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          keep_files: false  
